@@ -13,7 +13,7 @@ def index():
     db = get_db()
     aircrafts = db.execute(
         'SELECT a.id, name, description, created, author_id, username'
-        ' FROM aircraft a JOIN user u ON a.author_id = u.id'
+        ' FROM aircrafts a JOIN user u ON a.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
     return render_template('blog/index.html', aircrafts=aircrafts)
@@ -36,7 +36,7 @@ def create():
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO aircraft (name, aircraft_type, manufacturer, description, author_id)'
+                'INSERT INTO aircrafts (name, aircraft_type, manufacturer, description, author_id)'
                 ' VALUES (?, ?, ?, ?, ?)',
                 (name, aircraft_type, manufacturer, description, g.user['id'])
             )

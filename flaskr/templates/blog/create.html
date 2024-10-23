@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Aircraft{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div>
+      <label for="name">Aircraft Name</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="aircraft_type">Aircraft Type</label>
+      <input type="text" name="aircraft_type" id="aircraft_type" required>
+    </div>
+    <div>
+      <label for="manufacturer">Manufacturer</label>
+      <input type="text" name="manufacturer" id="manufacturer" required>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description"></textarea>
+    </div>
+    <div>
+      <button type="submit">Save</button>
+    </div>
+  </form>
+{% endblock %}
