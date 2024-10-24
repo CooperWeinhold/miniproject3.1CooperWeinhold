@@ -9,16 +9,21 @@
 
 {% block content %}
   {% for aircraft in aircrafts %}
-    <article class="aircraft">
-      <header>
-        <div>
-          <h1>{{ aircraft['name'] }}</h1>
-          <div class="about">by {{ aircraft['username'] }} on {{ aircraft['created'].strftime('%Y-%m-%d') }}</div>
+  <article class="aircraft">
+    <header>
+      <div>
+        <h1>{{ aircraft['name'] }}</h1>
+        <div class="about">
+          by {{ aircraft['username'] }} on {{ aircraft['created'].strftime('%Y-%m-%d') }}
         </div>
-      </header>
-      <p>{{ aircraft['description'] }}</p>
-    </article>
-  {% else %}
-    <p>No aircraft have been added yet.</p>
-  {% endfor %}
+        <div>Type: {{ aircraft['aircraft_type'] }}</div>   <!-- Display Aircraft Type -->
+        <div>Manufacturer: {{ aircraft['manufacturer'] }}</div>  <!-- Display Manufacturer -->
+      </div>
+    </header>
+    <p>{{ aircraft['description'] }}</p>
+  </article>
+{% else %}
+  <p>No aircraft have been added yet.</p>
+{% endfor %}
 {% endblock %}
+

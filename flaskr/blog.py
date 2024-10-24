@@ -12,7 +12,7 @@ bp = Blueprint('blog', __name__)
 def index():
     db = get_db()
     aircrafts = db.execute(
-        'SELECT a.id, name, description, created, author_id, username'
+        'SELECT a.id, name, description, created, author_id, username, aircraft_type, manufacturer'
         ' FROM aircrafts a JOIN user u ON a.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
