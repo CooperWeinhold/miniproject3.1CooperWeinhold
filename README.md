@@ -13,9 +13,6 @@ log out of their account as well as registering multiple accounts.
 ```
 pip install -r requirements.txt
 
-Download the dataset from https://www.kaggle.com/datasets/thedevastator/airplane-crashes-and-fatalities
-and add it to the project folder. 
-
 ```
 
 ### Executing program
@@ -25,8 +22,7 @@ python main.py
 ```
 
 ### Output
-Should create a new folder where 3 separate png files will show graphs 
-for the 3 different manufactures.
+Displays list of aircraft and their information that was inputted from the user. 
 
 ## Authors
 
