@@ -1,29 +1,40 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Aircraft{% endblock %}</h1>
+  <h1>{% block title %}Aircraft List{% endblock %}</h1>
   {% if g.user %}
-    <a class="action" href="{{ url_for('blog.create') }}">New</a>
+    <a class="action" href="{{ url_for('blog.create') }}">Add New Aircraft</a>
   {% endif %}
 {% endblock %}
 
 {% block content %}
-  {% for aircraft in aircrafts %}
+ {% for aircraft in aircrafts %}
   <article class="aircraft">
     <header>
-      <div>
-        <h1>{{ aircraft['name'] }}</h1>
-        <div class="about">
-          by {{ aircraft['username'] }} on {{ aircraft['created'].strftime('%Y-%m-%d') }}
-        </div>
-        <div>Type: {{ aircraft['aircraft_type'] }}</div>   <!-- Display Aircraft Type -->
-        <div>Manufacturer: {{ aircraft['manufacturer'] }}</div>  <!-- Display Manufacturer -->
+      <h1>{{ aircraft['name'] }}</h1>
+      <div class="about">
+        by {{ aircraft['username'] }} on {{ aircraft['created'].strftime('%Y-%m-%d') }}
       </div>
     </header>
-    <p>{{ aircraft['description'] }}</p>
+    <div class="aircraft-info">
+      <div>Type: {{ aircraft['aircraft_type'] }}</div>
+      <div>Manufacturer: {{ aircraft['manufacturer'] }}</div>
+      <div>Description: {{ aircraft['description'] }}</div>
+    </div>
+
+    <!-- Buttons should be placed inside this container -->
+    {% if g.user['id'] == aircraft['author_id'] %}
+      <div class="action-buttons">
+        <a href="{{ url_for('blog.update', id=aircraft['id']) }}" class="btn">Edit</a>
+        <form action="{{ url_for('blog.delete', id=aircraft['id']) }}" method="post" style="display:inline;">
+          <button type="submit" class="btn">Delete</button>
+        </form>
+      </div>
+    {% endif %}
   </article>
 {% else %}
   <p>No aircraft have been added yet.</p>
 {% endfor %}
+
 {% endblock %}
 

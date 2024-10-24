@@ -1,134 +1,152 @@
-html {
-  font-family: sans-serif;
-  background: #eee;
-  padding: 1rem;
-}
-
+/* Base body styling */
 body {
-  max-width: 960px;
-  margin: 0 auto;
-  background: white;
+    background-color: #1a1a1a; /* Dark background */
+    color: #ffffff; /* White text */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
-  color: #377ba8;
-  margin: 1rem 0;
+/* Container for content */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
 }
 
+/* Header */
+header {
+    background: #333333; /* Darker header background */
+    color: #ffffff; /* White text */
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid #ffffff; /* White accent border */
+}
+
+/* Main headings */
+h1, h2, h3 {
+    color: #ffffff; /* White-colored headings */
+}
+
+/* Links */
 a {
-  color: #377ba8;
+    color: #ffffff; /* White-colored links */
+    text-decoration: none;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid lightgray;
+a:hover {
+    color: #bbbbbb; /* Slightly greyed white on hover */
 }
 
-nav {
-  background: lightgray;
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
+/* Buttons */
+button, .action {
+    background-color: #ffffff; /* White background */
+    color: #1a1a1a; /* Dark text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
-nav h1 {
-  flex: auto;
-  margin: 0;
+button:hover, .action:hover {
+    background-color: #bbbbbb; /* Slightly darker white hover */
+    color: #000;
 }
 
-nav h1 a {
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
+/* Aircraft information boxes */
+.article, .post, .aircraft {
+    background-color: #2c2c2c; /* Slightly lighter dark background for content blocks */
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ffffff; /* White border */
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1); /* Soft shadow to highlight the content block */
 }
 
-nav ul  {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Aircraft Information Grouping */
+.article .aircraft-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background-color: #3a3a3a; /* Slightly darker background for the aircraft info section */
+    border-radius: 5px;
 }
 
-nav ul li a, nav ul li span, header .action {
-  display: block;
-  padding: 0.5rem;
+/* Individual aircraft details */
+.article .aircraft-info div {
+    padding: 5px 0;
+    border-bottom: 1px solid #ffffff;
 }
 
-.content {
-  padding: 0 1rem 1rem;
+.article .aircraft-info div:last-child {
+    border-bottom: none; /* Remove border for the last item */
 }
 
-.content > header {
-  border-bottom: 1px solid lightgray;
-  display: flex;
-  align-items: flex-end;
+/* Footer */
+footer {
+    background: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
 }
 
-.content > header h1 {
-  flex: auto;
-  margin: 1rem 0 0.25rem 0;
+/* Form styling */
+form {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-.flash {
-  margin: 1em 0;
-  padding: 1em;
-  background: #cae6f6;
-  border: 1px solid #377ba8;
+form input[type="text"], form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #1a1a1a;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 5px;
 }
 
-.post > header {
-  display: flex;
-  align-items: flex-end;
-  font-size: 0.85em;
+form input[type="text"]:focus, form textarea:focus {
+    outline: none;
+    border-color: #bbbbbb;
 }
 
-.post > header > div:first-of-type {
-  flex: auto;
+form button {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.post > header h1 {
-  font-size: 1.5em;
-  margin-bottom: 0;
+form button:hover {
+    background-color: #bbbbbb;
 }
 
-.post .about {
-  color: slategray;
-  font-style: italic;
+/* Edit and Delete buttons */
+.article .action-buttons {
+    margin-top: 15px; /* Space between description and buttons */
 }
 
-.post .body {
-  white-space: pre-line;
+.article .action-buttons a.btn, .article .action-buttons button.btn {
+    background-color: #ffffff; /* White background for buttons */
+    color: #1a1a1a; /* Dark text color */
+    padding: 10px 20px; /* Padding inside buttons */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    display: inline-block; /* Align buttons inline */
+    margin-right: 10px; /* Space between buttons */
 }
 
-.content:last-child {
-  margin-bottom: 0;
-}
-
-.content form {
-  margin: 1em 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.content label {
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-.content input, .content textarea {
-  margin-bottom: 1em;
-}
-
-.content textarea {
-  min-height: 12em;
-  resize: vertical;
-}
-
-input.danger {
-  color: #cc2f2e;
-}
-
-input[type=submit] {
-  align-self: start;
-  min-width: 10em;
+.article .action-buttons a.btn:hover, .article .action-buttons button.btn:hover {
+    background-color: #bbbbbb; /* Change color on hover */
+    color: #000000; /* Darker text on hover */
 }

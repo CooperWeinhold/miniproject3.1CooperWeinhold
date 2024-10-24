@@ -1,20 +1,33 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Edit "{{ post['title'] }}"{% endblock %}</h1>
+  <h1>{% block title %}Edit Aircraft{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <form method="post">
-    <label for="title">Title</label>
-    <input name="title" id="title"
-      value="{{ request.form['title'] or post['title'] }}" required>
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
-    <input type="submit" value="Save">
+    <div>
+      <label for="name">Aircraft Name</label>
+      <input type="text" name="name" id="name" value="{{ aircraft['name'] }}" required>
+    </div>
+    <div>
+      <label for="aircraft_type">Aircraft Type</label>
+      <input type="text" name="aircraft_type" id="aircraft_type" value="{{ aircraft['aircraft_type'] }}" required>
+    </div>
+    <div>
+      <label for="manufacturer">Manufacturer</label>
+      <input type="text" name="manufacturer" id="manufacturer" value="{{ aircraft['manufacturer'] }}" required>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea name="description" id="description">{{ aircraft['description'] }}</textarea>
+    </div>
+    <div>
+      <button type="submit">Save Changes</button>
+    </div>
   </form>
-  <hr>
-  <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
-    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+
+  <form action="{{ url_for('blog.delete', id=aircraft['id']) }}" method="post">
+    <button type="submit" class="danger">Delete Aircraft</button>
   </form>
 {% endblock %}
