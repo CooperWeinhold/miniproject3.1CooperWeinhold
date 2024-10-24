@@ -32,7 +32,7 @@ def create():
             error = 'Aircraft name is required.'
 
         if error is not None:
-            flash(error)
+            flash(error, 'danger')
         else:
             db = get_db()
             db.execute(
@@ -41,6 +41,7 @@ def create():
                 (name, aircraft_type, manufacturer, description, g.user['id'])
             )
             db.commit()
+            flash('Aircraft Added', 'success')  # Green alert for success
             return redirect(url_for('blog.index'))
 
     return render_template('blog/create.html')
@@ -95,4 +96,5 @@ def delete(id):
 
     db.execute('DELETE FROM aircrafts WHERE id = ?', (id,))
     db.commit()
+    flash('Aircraft Deleted', 'danger')  # Red alert for deletion
     return redirect(url_for('blog.index'))

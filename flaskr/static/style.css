@@ -88,7 +88,7 @@ button:hover, .action:hover {
 
 /* Footer */
 footer {
-    background: #333333;
+    background: #201c1c;
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
@@ -97,8 +97,8 @@ footer {
 
 /* Form styling */
 form {
-    background-color: #2c2c2c;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 10px;
     border-radius: 8px;
 }
 
@@ -106,7 +106,7 @@ form input[type="text"], form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #1a1a1a;
+    background-color: #000000;
     border: 1px solid #ffffff;
     color: #ffffff;
     border-radius: 5px;
@@ -127,17 +127,17 @@ form button {
 }
 
 form button:hover {
-    background-color: #bbbbbb;
+    background-color: #ffffff;
 }
 
 /* Edit and Delete buttons */
 .article .action-buttons {
-    margin-top: 15px; /* Space between description and buttons */
+    margin-top: 50px; /* Space between description and buttons */
 }
 
 .article .action-buttons a.btn, .article .action-buttons button.btn {
     background-color: #ffffff; /* White background for buttons */
-    color: #1a1a1a; /* Dark text color */
+    color: #000000; /* Dark text color */
     padding: 10px 20px; /* Padding inside buttons */
     border: none;
     border-radius: 5px; /* Rounded corners */
@@ -149,4 +149,43 @@ form button:hover {
 .article .action-buttons a.btn:hover, .article .action-buttons button.btn:hover {
     background-color: #bbbbbb; /* Change color on hover */
     color: #000000; /* Darker text on hover */
+}
+
+.aircraft-info {
+    color: #ffffff; /* White text for aircraft details */
+}
+
+/* If using dark background */
+.aircraft-info {
+    background-color: #2c2c2c; /* Dark background */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* General button rule (apply to most buttons but not the delete/edit buttons) */
+button:not(.action-buttons button), .action:not(.action-buttons button) {
+    background-color: #ffffff; /* White background */
+    color: #1a1a1a; /* Dark text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Specific styling for buttons inside the .action-buttons container */
+.action-buttons button, .action-buttons a {
+    background-color: #dc3545 !important; /* Force Red background with !important */
+    color: white !important; /* Force white text with !important */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.action-buttons button:hover, .action-buttons a:hover {
+    background-color: #c82333 !important; /* Darker red on hover */
+    color: #ffffff !important;
 }
